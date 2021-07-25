@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .border {
+            width: 800px;
+            height: 600px;
+            border: 1px solid #897;
+            background-color: #333;
+            margin: 0 auto;
+            position: relative;
+
+        }
+
+        .ball {
+            position: absolute;
+            background-color: aqua;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        .food {
+            position: absolute;
+            background-color: rgb(64, 156, 209);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="border"></div>
+    <script src="./snack.js"></script>
+    <script src="./utils.js"></script>
+    <script src="./food.js"></script>
+    <script>
+        let border = document.getElementsByClassName("border")[0];
+        let sigleFood = sigleEle(Food)
+        let objFood = new sigleFood(border)
+        new Snake(border, objFood).move(function (i) {
+            new sigleFood(null, i, Math.floor(Math.random() * (border.clientWidth - objFood.el[i].clientWidth)), Math.floor(Math.random() * (border.clientHeight - objFood.el[i].clientHeight)),Math.floor(Math.random() * (50 - 20)+20))
+        })
+    </script>
+</body>
+
+</html>
